@@ -1,0 +1,19 @@
+Quản lý điểm
+1. Student
+- id (Tự động cho): S2024IT001
+- name: string;
+- gender: 1, 0
+- Date of Birth unsigned int
+- GPA float
+- Letter Grade char[2]
+2. Student management
+private:
+- vector<Student>
+- list<Student>
+- arr<Student>
+public:
+- nhập, xuất, sắp xếp danh sách.
+- thêm, xóa, lọc (đạt học bổng, cảnh cáo học tập), Tìm kiếm.
+3. App
+- Trình bày
+

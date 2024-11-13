@@ -1,0 +1,10 @@
+Nguyen Duc Long
+1 29 10 2005 1 3.0
+Nguyen Thi Kieu Anh
+0 30 1 2005 2 4.0
+Tran Ngoc Anh
+0 17 5 2005 2 3.6
+Nguyen Minh Hai
+1 13 2 2004 3 2.4
+Tran Quang Minh
+1 25 4 2005 4 1.4
