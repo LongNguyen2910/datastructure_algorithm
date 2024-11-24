@@ -183,7 +183,9 @@ class Management {
         }
 
         void inOder(Node<int, DoublyList<Data>>* tmp, int end, void (*visit)(Node<int, DoublyList<Data>>* m_node, int end)) {
-            if (tmp) {
+            if (tmp && tmp->getKey() == end)
+                visit(tmp, end);
+            else if (tmp) {
                 inOder(tmp->getLeft(), end, visit);
                 visit(tmp, end);
                 inOder(tmp->getRight(), end, visit);
@@ -235,8 +237,6 @@ void printAToB(Node<int, DoublyList<Data>>* tmp, int end) {
     for (Iterator<Data> i = tmp->getElem().front(); i != nullptr; ++i) {
         cout << *i;
     }
-    if (tmp->getKey() == end)
-        return;
 }
 
 bool checkValid(int day) {
