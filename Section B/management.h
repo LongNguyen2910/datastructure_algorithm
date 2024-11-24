@@ -132,7 +132,10 @@ class Management {
                 for (Iterator<Data> it = tmp.front(); it != nullptr; ++it) {
                     if ((*it).getHour() == m_hour) {
                         tmp.erase(it.getCur());
-                        i->setElem(tmp);
+                        if (tmp.getSize() == 0)
+                            day.remove(i->getKey());
+                        else 
+                            i->setElem(tmp);
                         break;
                     } 
                 }
@@ -157,6 +160,7 @@ class Management {
                             day.remove(it->getKey());
                         else 
                             it->setElem(tmp);
+                        addTask(newDay, newTask);
                         break;
                     } else {
                         cout << "Not found!\n";
@@ -165,7 +169,6 @@ class Management {
             } else {
                 cout << "Not found!\n";
             }
-            addTask(newDay, newTask);
         }
 
         void viewTaskDay(int m_day) {
