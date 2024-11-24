@@ -156,11 +156,11 @@ class Management {
                     if ((*i).getHour() == m_hour) {
                         newTask = Data(newHour, (*i).getName(), (*i).getDes() ,(*i).getPrior(), (*i).getStatus());
                         tmp.erase(i.getCur());
+                        addTask(newDay, newTask);
                         if (tmp.getSize() == 0)
                             day.remove(it->getKey());
                         else 
                             it->setElem(tmp);
-                        addTask(newDay, newTask);
                         break;
                     } else {
                         cout << "Not found!\n";

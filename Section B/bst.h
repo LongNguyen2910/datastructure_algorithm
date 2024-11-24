@@ -106,21 +106,33 @@ class BinaryTree {
         void remove(Node<K, T>* node) {
             Node<K, T>* parentNode {node->getParent()};
             if (!node->hasLeft() && !node->hasRight()) {
-                if (parentNode->getLeft() == node)
-                    parentNode->setLeft(nullptr);
-                else parentNode->setRight(nullptr);
+                if (parentNode != nullptr) {
+                    if (parentNode->getLeft() == node)
+                        parentNode->setLeft(nullptr);
+                    else parentNode->setRight(nullptr);
+                } else {
+                    root = nullptr;
+                }
             }
             else if (node->hasLeft()) {
-                node->getLeft()->setParent(parentNode);
-                if (parentNode->getLeft() == node) 
-                    parentNode->setLeft(node->getLeft());
-                else parentNode->setRight(node->getLeft());
+                if (parentNode != nullptr) {
+                    node->getLeft()->setParent(parentNode);
+                    if (parentNode->getLeft() == node) 
+                        parentNode->setLeft(node->getLeft());
+                    else parentNode->setRight(node->getLeft());
+                } else {
+                    root = node->getLeft();
+                }
             }
             else if (node->hasRight()) {
-                node->getRight()->setParent(parentNode);
-                if (parentNode->getLeft() == node) 
-                    parentNode->setLeft(node->getRight());
-                else parentNode->setRight(node->getRight());
+                if (parentNode != nullptr) {
+                    node->getRight()->setParent(parentNode);
+                    if (parentNode->getLeft() == node) 
+                        parentNode->setLeft(node->getRight());
+                    else parentNode->setRight(node->getRight());
+                } else {
+                    root = node->getRight();
+                }
             }
             delete node;
         }
