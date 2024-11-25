@@ -68,8 +68,7 @@ class app {
             int a, b;
             cout << "enter a and b (a < b): ";
             cin >> a >> b;
-            auto it = november.getDay().search(a, november.getDay().getRoot(), 1);
-            november.inOder(it, b, printAToB);
+            november.inOder(november.getDay().getRoot(), a, b, printAToB);
             char y;
             do {
                 cout << "Come back? (y/n)";

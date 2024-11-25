@@ -182,13 +182,11 @@ class Management {
             }
         }
 
-        void inOder(Node<int, DoublyList<Data>>* tmp, int end, void (*visit)(Node<int, DoublyList<Data>>* m_node, int end)) {
-            if (tmp && tmp->getKey() == end)
-                visit(tmp, end);
-            else if (tmp) {
-                inOder(tmp->getLeft(), end, visit);
-                visit(tmp, end);
-                inOder(tmp->getRight(), end, visit);
+        void inOder(Node<int, DoublyList<Data>>* tmp, int begin, int end, void (*visit)(Node<int, DoublyList<Data>>* m_node, int begin, int end)) {
+            if (tmp) {
+                inOder(tmp->getLeft(), begin, end, visit);
+                visit(tmp, begin, end);
+                inOder(tmp->getRight(), begin, end, visit);
             }
         }
         
@@ -232,10 +230,14 @@ void printStatus(Node<int, DoublyList<Data>>* m_node, int choice) {
         cout << "empty\n";
 }
 
-void printAToB(Node<int, DoublyList<Data>>* tmp, int end) {
-    cout << "Day" << tmp->getKey() << "\n";
-    for (Iterator<Data> i = tmp->getElem().front(); i != nullptr; ++i) {
-        cout << *i;
+void printAToB(Node<int, DoublyList<Data>>* tmp, int begin, int end) {
+    if (tmp->getKey() >= begin && tmp->getKey() <= end) {
+        cout << "Day " << tmp->getKey() << "\n";
+        for (Iterator<Data> i = tmp->getElem().front(); i != nullptr; ++i) {
+            cout << *i;
+        }
+    } else {
+        return;
     }
 }
 
